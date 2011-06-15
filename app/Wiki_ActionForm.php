@@ -33,7 +33,7 @@ class Wiki_ActionForm extends Ethna_ActionForm
              'required'    => false,            // Required Option(true/false)
              'min'         => 1,            // Minimum value
              'max'         => 256,            // Maximum value
-             'regexp'      =>  WIKI_RULE_FORM,            // String by Regexp
+             'regexp'      =>  WIKI_NAME_VALIDATE,            // String by Regexp
              'mbregexp'    => null,            // Multibype string by Regexp
              'mbregexp_encoding' => 'UTF-8',   // Matching encoding when using mbregexp 
              //  Filter
