@@ -107,6 +107,7 @@ class Wiki_Controller extends Ethna_Controller
         'view'          => 'app/view',
         'www'           => 'www',
         'test'          => 'app/test',
+        'database'      => 'database',
     );
 
     /**

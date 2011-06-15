@@ -18,7 +18,7 @@ class Wiki_PageManager extends Ethna_AppManager
 {
     private function getDirectory()
     {
-        return $this->backend->getController()->getDirectory('tmp');
+        return $this->backend->getController()->getDirectory('database');
     }
 
     private function getPath($pagename)
