@@ -4,8 +4,8 @@
  *
  * update:
  */
-define('WIKI_RULE', '([A-Z][a-z]+([A-Z][a-z]+)+)');
-define('WIKI_RULE_FORM', '/^' . WIKI_RULE . '$/');
+define('WIKI_NAME', '([A-Z][a-z]+([A-Z][a-z]+)+)');
+define('WIKI_NAME_VALIDATE', '/^' . WIKI_NAME . '$/');
 
 
 $config = array(
