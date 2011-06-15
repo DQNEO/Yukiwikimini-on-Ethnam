@@ -78,16 +78,19 @@ class Wiki_PageManager extends Ethna_AppManager
 
     private function wikize($content)
     {
-        return preg_replace_callback(WIKI_RULE, array($this, 'makeLink'), $content);
+        $pattern = '(((http|https|ftp):[\x21-\x7E]*)|('.WIKI_NAME.'))';
+        return preg_replace_callback($pattern, array($this, 'makeLink'), $content);
     }
 
     private function makeLink($matches)
     {
-        $pagename = $matches[0];
-        if ($this->exists($pagename)) {
-            return "<a href='?mypage=$pagename'>$pagename</a>";
+        $_ = $matches[0];
+        if (preg_match('/^(http|https|ftp):/', $_)) {
+            return "<a href='$_'>$_</a>";
+        } else if ($this->exists($_)) {
+            return "<a href='?mypage=$_'>$_</a>";
         } else {
-            return "$pagename<a href='?action_Edit=true&amp;mypage=$pagename'>?</a>";
+            return "$_<a href='?action_Edit=true&amp;mypage=$_'>?</a>";
         }
     }
 
