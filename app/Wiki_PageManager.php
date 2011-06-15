@@ -16,9 +16,14 @@
  */
 class Wiki_PageManager extends Ethna_AppManager
 {
+    private function getDirectory()
+    {
+        return $this->backend->getController()->getDirectory('tmp');
+    }
+
     private function getPath($pagename)
     {
-        $dir = $this->backend->getController()->getDirectory('tmp');
+        $dir = $this->getDirectory();
         return $dir . '/' . $pagename;
     }
 
@@ -48,7 +53,19 @@ class Wiki_PageManager extends Ethna_AppManager
             return '';
         }
 
-        return file_get_contents($this->getPath($pagename));
+        $content = file_get_contents($this->getPath($pagename));
+        return $this->escape($content);
+    }
+
+    private function escape($content)
+    {
+        $content = preg_replace('/\r\n/', "\n", $content);
+        $content = preg_replace('/\r/', "\n", $content);
+        $content = preg_replace('/\&/', '&amp;', $content);
+        $content = preg_replace('/</', '&lt;', $content);
+        $content = preg_replace('/>/', '&gt;', $content);
+        $content = preg_replace('/"/', '&quot;', $content);
+        return $content;
     }
 
     public function get($pagename)
@@ -59,12 +76,12 @@ class Wiki_PageManager extends Ethna_AppManager
     }
 
 
-    function wikize($content)
+    private function wikize($content)
     {
         return preg_replace_callback(WIKI_RULE, array($this, 'makeLink'), $content);
     }
 
-    function makeLink($matches)
+    private function makeLink($matches)
     {
         $pagename = $matches[0];
         if ($this->exists($pagename)) {
@@ -76,7 +93,7 @@ class Wiki_PageManager extends Ethna_AppManager
 
     public function getList()
     {
-        $dir = $this->backend->getController()->getDirectory('tmp');
+        $dir = $this->getDirectory();
         $files = scandir($dir);
 
         $pages = array();

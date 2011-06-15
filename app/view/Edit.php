@@ -29,7 +29,7 @@ class Wiki_View_Edit extends Wiki_ViewClass
         $this->af->setApp('title', $this->af->get('mypage'));
 
         $text = $this->pm->getText($this->af->get('mypage'));
-        $this->af->setApp('content', $text);
+        $this->af->setAppNe('content', $text);
     }
 }
 
