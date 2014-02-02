@@ -22,7 +22,7 @@ class Wiki_Form_Read extends Wiki_ActionForm
      *  @var      array   form definition.
      */
     var $form = array(
-        'mypage',
+        'mypage' => [],
     );
 }
 
