@@ -38,16 +38,5 @@ class Wiki_ViewClass extends Ethna_ViewClass
         $this->pm = $this->backend->getManager('page');
     }
 
-    /**
-     *  set common default value.
-     *
-     *  @access protected
-     *  @param  object  Wiki_Renderer  Renderer object.
-     */
-    function _setDefault(&$renderer)
-    {
-    }
-
 }
-// }}}
 

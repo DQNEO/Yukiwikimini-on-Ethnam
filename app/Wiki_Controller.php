@@ -182,15 +182,5 @@ class Wiki_Controller extends Ethna_Controller
         return array('ja_JP', 'UTF-8', 'UTF-8');
     }
 
-    /**
-     *  テンプレートエンジンのデフォルト状態を設定する
-     *
-     *  @access protected
-     *  @param  object  Ethna_Renderer  レンダラオブジェクト
-     *  @obsolete
-     */
-    function _setDefaultTemplateEngine(&$renderer)
-    {
-    }
 }
 
