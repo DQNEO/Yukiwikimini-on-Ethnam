@@ -17,7 +17,8 @@ set_include_path(implode(PATH_SEPARATOR, array($app, $lib)) . PATH_SEPARATOR . g
 
 
 /** including application library. */
-require_once 'Ethna/Ethna.php';
+require_once 'Smarty/Smarty.class.php';
+require_once 'ethnam/bootstrap.php';
 require_once 'Wiki_Error.php';
 require_once 'Wiki_ActionClass.php';
 require_once 'Wiki_ActionForm.php';
