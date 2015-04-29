@@ -1,0 +1,6 @@
+{
+    "require": {
+        "dqneo/ethnam": "2.23.9",
+        "smarty/smarty": "2.6.26"
+    }
+}
