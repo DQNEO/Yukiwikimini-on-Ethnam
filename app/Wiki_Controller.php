@@ -22,6 +22,10 @@ require_once 'Wiki_ActionForm.php';
 require_once 'Wiki_ViewClass.php';
 //require_once 'Wiki_UrlHandler.php';
 
+define('WIKI_NAME', '([A-Z][a-z]+([A-Z][a-z]+)+)');
+define('WIKI_NAME_VALIDATE', '/^' . WIKI_NAME . '$/');
+
+
 /**
  *  Wiki application Controller definition.
  *
