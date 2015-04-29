@@ -4,7 +4,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 544e1ff1753ff1f5a60ae17243638b068bc4cb09 $
+ *  @version    $Id: 8b11991fe0c901152c55bef5fbe0992dcd7364e2 $
  */
 
 /** Application base directory */
@@ -15,14 +15,16 @@ $app = BASE . "/app";
 $lib = BASE . "/lib";
 set_include_path(implode(PATH_SEPARATOR, array($app, $lib)) . PATH_SEPARATOR . get_include_path());
 
-
-/** including application library. */
-require_once 'Smarty/Smarty.class.php';
-require_once 'ethnam/bootstrap.php';
+require_once BASE . '/vendor/autoload.php';
 require_once 'Wiki_Error.php';
 require_once 'Wiki_ActionClass.php';
 require_once 'Wiki_ActionForm.php';
 require_once 'Wiki_ViewClass.php';
+//require_once 'Wiki_UrlHandler.php';
+
+define('WIKI_NAME', '([A-Z][a-z]+([A-Z][a-z]+)+)');
+define('WIKI_NAME_VALIDATE', '/^' . WIKI_NAME . '$/');
+
 
 /**
  *  Wiki application Controller definition.
@@ -34,18 +36,18 @@ require_once 'Wiki_ViewClass.php';
 class Wiki_Controller extends Ethna_Controller
 {
     /**#@+
-     *  @access private
+     *  @access protected
      */
 
     /**
      *  @var    string  Application ID(appid)
      */
-    var $appid = 'WIKI';
+    protected $appid = 'WIKI';
 
     /**
      *  @var    array   forward definition.
      */
-    var $forward = array(
+    protected $forward = array(
         /*
          *  TODO: write forward definition here.
          *
@@ -60,7 +62,7 @@ class Wiki_Controller extends Ethna_Controller
     /**
      *  @var    array   action definition.
      */
-    var $action = array(
+    protected $action = array(
         /*
          *  TODO: write action definition here.
          *
@@ -76,21 +78,9 @@ class Wiki_Controller extends Ethna_Controller
     );
 
     /**
-     *  @var    array   SOAP action definition.
-     */
-    var $soap_action = array(
-        /*
-         *  TODO: write action definition for SOAP application here.
-         *  Example:
-         *
-         *  'sample'            => array(),
-         */
-    );
-
-    /**
      *  @var    array       application directory.
      */
-    var $directory = array(
+    protected $directory = array(
         'action'        => 'app/action',
         'action_cli'    => 'app/action_cli',
         'action_xmlrpc' => 'app/action_xmlrpc',
@@ -101,7 +91,7 @@ class Wiki_Controller extends Ethna_Controller
         'filter'        => 'app/filter',
         'locale'        => 'locale',
         'log'           => 'log',
-        'plugins'       => array('app/plugin/Smarty', 'lib/Ethna/extlib/Plugin/Smarty'),
+        'plugins'       => array('app/plugin/Smarty'),
         'template'      => 'template',
         'template_c'    => 'tmp',
         'tmp'           => 'tmp',
@@ -114,14 +104,14 @@ class Wiki_Controller extends Ethna_Controller
     /**
      *  @var    array       database access definition.
      */
-    var $db = array(
+    protected $db = array(
         ''              => DB_TYPE_RW,
     );
 
     /**
      *  @var    array       extention(.php, etc) configuration.
      */
-    var $ext = array(
+    protected $ext = array(
         'php'           => 'php',
         'tpl'           => 'tpl',
     );
@@ -129,7 +119,7 @@ class Wiki_Controller extends Ethna_Controller
     /**
      *  @var    array   class definition.
      */
-    var $class = array(
+    public $class = array(
         /*
          *  TODO: When you override Configuration class, Logger class,
          *        SQL class, don't forget to change definition as follows!
@@ -144,7 +134,6 @@ class Wiki_Controller extends Ethna_Controller
         'logger'        => 'Ethna_Logger',
         'plugin'        => 'Ethna_Plugin',
         'session'       => 'Ethna_Session',
-        'sql'           => 'Ethna_AppSQL',
         'view'          => 'Wiki_ViewClass',
         'renderer'      => 'Ethna_Renderer_Smarty',
         'url_handler'   => 'Wiki_UrlHandler',
@@ -153,10 +142,10 @@ class Wiki_Controller extends Ethna_Controller
     /**
      *  @var    array       filter definition.
      */
-    var $filter = array(
+    protected $filter = array(
         /*
          *  TODO: when you use filter, write filter plugin name here.
-         *  (If you specify class name, Ethna reads filter class in 
+         *  (If you specify class name, Ethna reads filter class in
          *   filter directory)
          *
          *  Example:
@@ -177,10 +166,19 @@ class Wiki_Controller extends Ethna_Controller
      *                  client encoding name(= template encoding)
      *                  (locale name is "ll_cc" format. ll = language code. cc = country code.)
      */
-    function _getDefaultLanguage()
+    protected function _getDefaultLanguage()
     {
-        return array('ja_JP', 'UTF-8', 'UTF-8');
+        return array('ja_JP', 'UTF-8', '{$client_enc}');
     }
 
+    /**
+     *  set Default Template Engine
+     *
+     *  @access protected
+     *  @param  object  Ethna_Renderer
+     *  @obsolete
+     */
+    protected function _setDefaultTemplateEngine($renderer)
+    {
+    }
 }
-

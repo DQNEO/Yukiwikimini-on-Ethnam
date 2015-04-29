@@ -4,7 +4,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: f9f5315aee698b851b065eae7c144522b800fc21 $
+ *  @version    $Id: 88de2c74c8b55286b1c24cfff76801e414e20d13 $
  */
 
 /**
@@ -50,7 +50,7 @@ class {$view_class}_TestCase extends Ethna_UnitTestCase
     function test_viewSample()
     {
         /*
-        // setting form input. 
+        // setting form input.
         $this->af->set('id', 1);
 
         // {$forward_name} preprocess.

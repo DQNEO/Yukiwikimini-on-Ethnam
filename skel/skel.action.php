@@ -4,7 +4,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 313d2f94a569be1b093001aa38bb6769a72827a6 $
+ *  @version    $Id: e2c515f9c03fe4dd285e1851d6aa1141480fa14b $
  */
 
 /**
@@ -17,10 +17,10 @@
 class {$action_form} extends Wiki_ActionForm
 {
     /**
-     *  @access private
+     *  @access protected
      *  @var    array   form definition.
      */
-    var $form = array(
+    public $form = array(
        /*
         *  TODO: Write form definition which this action uses.
         *  @see http://ethna.jp/ethna-document-dev_guide-form.html
@@ -32,14 +32,12 @@ class {$action_form} extends Wiki_ActionForm
         *      'type'        => VAR_TYPE_INT,    // Input type
         *      'form_type'   => FORM_TYPE_TEXT,  // Form type
         *      'name'        => 'Sample',        // Display name
-        *  
+        *
         *      //  Validator (executes Validator by written order.)
         *      'required'    => true,            // Required Option(true/false)
         *      'min'         => null,            // Minimum value
         *      'max'         => null,            // Maximum value
         *      'regexp'      => null,            // String by Regexp
-        *      'mbregexp'    => null,            // Multibype string by Regexp
-        *      'mbregexp_encoding' => 'UTF-8',   // Matching encoding when using mbregexp 
         *
         *      //  Filter
         *      'filter'      => 'sample',        // Optional Input filter to convert input
@@ -57,7 +55,7 @@ class {$action_form} extends Wiki_ActionForm
      *  @return mixed           Converted result.
      */
     /*
-    function _filter_sample($value)
+    protected function _filter_sample($value)
     {
         //  convert to upper case.
         return strtoupper($value);
@@ -81,8 +79,15 @@ class {$action_class} extends Wiki_ActionClass
      *  @return string    forward name(null: success.
      *                                false: in case you want to exit.)
      */
-    function prepare()
+    public function prepare()
     {
+        /**
+        if ($this->af->validate() > 0) {
+            // forward to error view (this is sample)
+            return 'error';
+        }
+        $sample = $this->af->get('sample');
+        */
         return null;
     }
 
@@ -92,9 +97,8 @@ class {$action_class} extends Wiki_ActionClass
      *  @access public
      *  @return string  forward name.
      */
-    function perform()
+    public function perform()
     {
         return '{$action_name}';
     }
 }
-

@@ -5,7 +5,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 5ad478e7b12cf03245782e338267e1b14fb6d6cb $
+ *  @version    $Id: a7f240f9c5c6567917fac7569fbf962b6e752965 $
  */
 
 // {{{ Wiki_ViewClass
@@ -23,14 +23,14 @@ class Wiki_ViewClass extends Ethna_ViewClass
      */
 
     /** @var  string  set layout template file   */
-    var $_layout_file = 'layout';
+    protected $_layout_file = 'layout';
 
     /**#@+
      *  @access public
      */
 
     /** @var boolean  layout template use flag   */
-    var $use_layout = true;
+    public $use_layout = true;
 
     public function __construct($backend, $forward_name, $forward_path)
     {
@@ -39,4 +39,4 @@ class Wiki_ViewClass extends Ethna_ViewClass
     }
 
 }
-
+// }}}

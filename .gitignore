@@ -1,2 +1,4 @@
 /database
 /tmp
+composer.lock
+vendor

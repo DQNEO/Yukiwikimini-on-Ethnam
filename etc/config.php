@@ -1,13 +1,9 @@
 <?php
 /*
- * wiki-ini.php
+ * config.php
  *
  * update:
  */
-define('WIKI_NAME', '([A-Z][a-z]+([A-Z][a-z]+)+)');
-define('WIKI_NAME_VALIDATE', '/^' . WIKI_NAME . '$/');
-
-
 $config = array(
     // site
     'url' => '',
@@ -46,7 +42,7 @@ $config = array(
     //    ),
     //    'file'  => array(
     //        'level'         => 'notice',
-    //        'file'          => '/var/log/wiki.log',
+    //        'file'          => '/var/log/ethnam.log',
     //        'mode'          => 0666,
     //    ),
     //    'alertmail'  => array(
@@ -61,9 +57,8 @@ $config = array(
     'session' => array(
         'handler'   => 'files',
         'path'      => 'tmp',
-        'check_remote_addr'      => true,
-        //'cache_limiter' => 'private_no_expier',
-        //'cache_expier'  => '180',
+        //'cache_limiter' => 'private_no_expire',
+        //'cache_expire'  => '180',
     ),
 
     // i18n
@@ -75,8 +70,8 @@ $config = array(
     // Smarty
     //'renderer' => array(
     //    'smarty' => array(
-    //        'left_delimiter' => '{',
-    //        'right_delimiter' => '}',
+    //        'left_delimiter' => '{{',
+    //        'right_delimiter' => '}}',
     //    ),
     //),
 

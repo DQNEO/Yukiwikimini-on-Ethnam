@@ -2,13 +2,13 @@
 /**
  *  Index.php
  *
- *  @author     {$author}
- *  @package    Wiki
- *  @version    $Id: 313d2f94a569be1b093001aa38bb6769a72827a6 $
+ *  @author    {$author}
+ *  @package   Wiki
+ *  @version   $Id: e7e47c4178c0b8e3a1ef1b0daf9620f4323250e4 $
  */
 
 /**
- *  index action implementation.
+ *  Index action implementation.
  *
  *  @author     {$author}
  *  @access     public
@@ -17,14 +17,13 @@
 class Wiki_Action_Index extends Wiki_ActionClass
 {
     /**
-     *  index action implementation.
+     *  Index action implementation.
      *
-     *  @access public
-     *  @return string  forward name.
+     *  @access    public
+     *  @return    string  Forward Name.
      */
-    function perform()
+    public function perform()
     {
         return 'index';
     }
 }
-

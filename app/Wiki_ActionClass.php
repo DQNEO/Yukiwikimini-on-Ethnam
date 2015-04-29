@@ -5,7 +5,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: f02b68159d59dac373657862b68c5771afee6d15 $
+ *  @version    $Id: fa6d926943d0d227b86f127fa6d4ab9fd084e19d $
  */
 
 // {{{ Wiki_ActionClass
@@ -31,7 +31,7 @@ class Wiki_ActionClass extends Ethna_ActionClass
      *  @return string  Forward name.
      *                  (null if no errors. false if we have something wrong.)
      */
-    function authenticate()
+    public function authenticate()
     {
         return parent::authenticate();
     }
@@ -43,7 +43,7 @@ class Wiki_ActionClass extends Ethna_ActionClass
      *  @return string  Forward name.
      *                  (null if no errors. false if we have something wrong.)
      */
-    function prepare()
+    public function prepare()
     {
         return parent::prepare();
     }
@@ -55,10 +55,9 @@ class Wiki_ActionClass extends Ethna_ActionClass
      *  @return string  Forward name.
      *                  (we does not forward if returns null.)
      */
-    function perform()
+    public function perform()
     {
         return parent::perform();
     }
 }
 // }}}
-

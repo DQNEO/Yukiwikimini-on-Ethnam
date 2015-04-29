@@ -4,7 +4,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 3b358983bac484cec10ba3affe4e7106519a47c2 $
+ *  @version    $Id: febc030889f66d6e14a62771b50e9bf40fd30c3a $
  */
 
 /**
@@ -72,7 +72,7 @@ class Wiki_UrlHandler extends Ethna_UrlHandler
      */
     // }}}
 
-    // {{{ filter 
+    // {{{ filter
     // }}}
 }
 

@@ -5,7 +5,7 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 3593df9a65169faf443b824a2c5c8a80c7c84da1 $
+ *  @version    $Id: 1d92c01639b2a2f873e44216c35a7d3356299201 $
  */
 
 // {{{ Wiki_ActionForm
@@ -19,11 +19,11 @@
 class Wiki_ActionForm extends Ethna_ActionForm
 {
     /**#@+
-     *  @access private
+     *  @access protected
      */
 
     /** @var    array   form definition (default) */
-    var $form_template = array(
+    public $form_template = array(
          'mypage' => array(
              // Form definition
              'type'        => VAR_TYPE_STRING,    // Input type
@@ -34,8 +34,7 @@ class Wiki_ActionForm extends Ethna_ActionForm
              'min'         => 1,            // Minimum value
              'max'         => 256,            // Maximum value
              'regexp'      =>  WIKI_NAME_VALIDATE,            // String by Regexp
-             'mbregexp'    => null,            // Multibype string by Regexp
-             'mbregexp_encoding' => 'UTF-8',   // Matching encoding when using mbregexp 
+             'regexp'    => null,            // Multibype string by Regexp
              //  Filter
              //'filter'      => 'sample',        // Optional Input filter to convert input
              'custom'      => null,            // Optional method name which
@@ -52,7 +51,7 @@ class Wiki_ActionForm extends Ethna_ActionForm
      *  @param  string      $name   form item name.
      *  @param  int         $code   error code.
      */
-    function handleError($name, $code)
+    public function handleError($name, $code)
     {
         return parent::handleError($name, $code);
     }
@@ -64,7 +63,7 @@ class Wiki_ActionForm extends Ethna_ActionForm
      *  @param  array   $form_template  form template
      *  @return array   form template after setting.
      */
-    function _setFormTemplate($form_template)
+    protected function _setFormTemplate($form_template)
     {
         return parent::_setFormTemplate($form_template);
     }
@@ -74,11 +73,10 @@ class Wiki_ActionForm extends Ethna_ActionForm
      *
      *  @access protected
      */
-    function _setFormDef()
+    protected function _setFormDef()
     {
         return parent::_setFormDef();
     }
 
 }
 // }}}
-

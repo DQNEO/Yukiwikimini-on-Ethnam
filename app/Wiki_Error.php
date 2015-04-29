@@ -4,13 +4,13 @@
  *
  *  @package   Wiki
  *
- *  $Id: 74177f6a3edb02db5e7a817f570f56ef77e7f690 $
+ *  $Id: 0fa9f8016b6019fca765272649b7a2e774c43068 $
  */
 
 /*--- Application Error Definition ---*/
 /*
  *  TODO: Write application error definition here.
- *        Error codes 255 and below are reserved 
+ *        Error codes 255 and below are reserved
  *        by Ethna, so use over 256 value for error code.
  *
  *  Example:
