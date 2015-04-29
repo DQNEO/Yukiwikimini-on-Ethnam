@@ -1,21 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="{$config.url}css/ethna.css" type="text/css" />
-<title>Wiki</title>
-</head>
-<body>
-<div id="header">
-    <h1>Wiki</h1>
-</div>
-
-<div id="main">
-{$content}
-</div>
-
-<div id="footer">
-    Powered By <a href="http://ethna.jp">Ethna</a>-{$smarty.const.ETHNA_VERSION}.
-</div>
-</body>
+    <head>
+      <title>{$app.title}</title>
+      <style type="text/css">
+        <!--
+            {literal}
+            body { font-family: "Courier New", monospace; }
+            pre { line-height:130%; }
+            a { text-decoration: none }
+            a:hover { text-decoration: underline }
+            {/literal}
+          -->
+      </style>
+    </head>
+    <body bgcolor="white">
+        <table width="100%" border="0">
+            <tr valign="top">
+                <td>
+                    <h1>{$app.title}</h1>
+                </td>
+                <td align="right">
+                    <a href="?mypage=FrontPage">FrontPage</a> | 
+                    {if $app.canedit}
+                       <a href="?action_edit=true&mypage={$app.title}">Edit</a> | 
+                    {/if}
+                    <a href="?action_index=true">Index</a> | 
+                    <a href="http://www.hyuki.com/yukiwiki/mini/">YukiWikiMini</a>
+                </td>
+            </tr>
+        </table>
+        {$content}
+    </body>
 </html>
+
