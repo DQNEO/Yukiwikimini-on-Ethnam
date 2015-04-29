@@ -23,7 +23,24 @@ class Wiki_ActionForm extends Ethna_ActionForm
      */
 
     /** @var    array   form definition (default) */
-    public $form_template = array();
+    public $form_template = array(
+         'mypage' => array(
+             // Form definition
+             'type'        => VAR_TYPE_STRING,    // Input type
+             'form_type'   => FORM_TYPE_TEXT,  // Form type
+             'name'        => 'ページ名',        // Display name
+             //  Validator (executes Validator by written order.)
+             'required'    => false,            // Required Option(true/false)
+             'min'         => 1,            // Minimum value
+             'max'         => 256,            // Maximum value
+             'regexp'      =>  WIKI_NAME_VALIDATE,            // String by Regexp
+             'regexp'    => null,            // Multibype string by Regexp
+             //  Filter
+             //'filter'      => 'sample',        // Optional Input filter to convert input
+             'custom'      => null,            // Optional method name which
+                                               // is defined in this(parent) class.
+         ),
+    );
 
     /**#@-*/
 
@@ -63,4 +80,3 @@ class Wiki_ActionForm extends Ethna_ActionForm
 
 }
 // }}}
-
