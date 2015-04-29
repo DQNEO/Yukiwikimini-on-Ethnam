@@ -12,5 +12,5 @@ require_once dirname(__FILE__) . '/../app/Wiki_Controller.php';
 /**
  * Run application.
  */
-Wiki_Controller::main('Wiki_Controller', 'index');
+Wiki_Controller::main('Wiki_Controller', 'read');
 
