@@ -30,15 +30,14 @@ class Wiki_Form_Write extends Wiki_ActionForm
             'type'        => VAR_TYPE_STRING,    // Input type
             'form_type'   => FORM_TYPE_TEXTAREA,  // Form type
             'name'        => 'コンテンツ',        // Display name
-        
+
             //  Validator (executes Validator by written order.)
             'required'    => false,            // Required Option(true/false)
             'min'         => null,            // Minimum value
             'max'         => 1024,            // Maximum value
             'regexp'      => null,            // String by Regexp
-            'mbregexp'    => null,            // Multibype string by Regexp
-            'mbregexp_encoding' => 'UTF-8',   // Matching encoding when using mbregexp 
-       
+            'regexp'    => null,            // Multibype string by Regexp
+
             //  Filter
             'custom'      => null,            // Optional method name which
                                               // is defined in this(parent) class.
@@ -89,4 +88,3 @@ class Wiki_Action_Write extends Wiki_ActionClass
         return 'read';
     }
 }
-
