@@ -1,2 +1,5 @@
-  <h2>Index Page</h2>
-  <p>hello, world!</p>
+<ul>
+{foreach from=$app.pages item=page}
+<li><a href="?mypage={$page}"><tt>{$page}</tt></a></li>
+{/foreach}
+</ul>
