@@ -18,6 +18,12 @@
  */
 class Wiki_ActionClass extends Ethna_ActionClass
 {
+    public function __construct($backend)
+    {
+        parent::__construct($backend);
+        $this->pm  = $this->backend->getManager('page');
+    }
+
     /**
      *  authenticate before executing action.
      *
@@ -55,4 +61,3 @@ class Wiki_ActionClass extends Ethna_ActionClass
     }
 }
 // }}}
-
