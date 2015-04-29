@@ -20,7 +20,7 @@ require_once 'Wiki_Error.php';
 require_once 'Wiki_ActionClass.php';
 require_once 'Wiki_ActionForm.php';
 require_once 'Wiki_ViewClass.php';
-require_once 'Wiki_UrlHandler.php';
+//require_once 'Wiki_UrlHandler.php';
 
 /**
  *  Wiki application Controller definition.
