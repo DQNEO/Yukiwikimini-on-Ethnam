@@ -4,11 +4,11 @@
  *
  *  @author     {$author}
  *  @package    Wiki
- *  @version    $Id: 213d11c251104242f9806527d410cf7dad779c54 $
+ *  @version    $Id: 6a152841e30d3c762e3a60c8ac0899a72c0641d2 $
  */
 
 /**
- *  Index view implementation.
+ *  index view implementation.
  *
  *  @author     {$author}
  *  @access     public
@@ -16,13 +16,18 @@
  */
 class Wiki_View_Index extends Wiki_ViewClass
 {
+    /** @var boolean  layout template use flag   */
+    var $use_layout = true;
+
     /**
      *  preprocess before forwarding.
      *
      *  @access public
      */
-    public function preforward()
+    function preforward()
     {
+        $this->af->setApp('title', 'Index');
+        $this->af->setApp('pages', $this->pm->getList());
     }
 }
 

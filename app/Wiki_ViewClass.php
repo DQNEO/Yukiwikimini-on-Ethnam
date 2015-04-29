@@ -32,16 +32,11 @@ class Wiki_ViewClass extends Ethna_ViewClass
     /** @var boolean  layout template use flag   */
     public $use_layout = true;
 
-    /**
-     *  set common default value.
-     *
-     *  @access protected
-     *  @param  object  Wiki_Renderer  Renderer object.
-     */
-    protected function _setDefault($renderer)
+    public function __construct($backend, $forward_name, $forward_path)
     {
+        parent::__construct($backend, $forward_name, $forward_path);
+        $this->pm = $this->backend->getManager('page');
     }
 
 }
 // }}}
-
