@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
     <head>
+      <meta charset="utf8">
       <title>{$app.title}</title>
       <style type="text/css">
         <!--
