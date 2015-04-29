@@ -23,8 +23,7 @@
                     {if $app.canedit}
                        <a href="?action_edit=true&mypage={$app.title}">Edit</a> | 
                     {/if}
-                    <a href="?action_index=true">Index</a> | 
-                    <a href="http://www.hyuki.com/yukiwiki/mini/">YukiWikiMini</a>
+                    <a href="?action_index=true">Index</a>
                 </td>
             </tr>
         </table>
